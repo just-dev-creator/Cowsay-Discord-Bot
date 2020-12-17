@@ -1,5 +1,6 @@
 import discord
 import cowsay2
+import datetime
 TOKEN = ""
 with open("credentials.txt") as f:
     TOKEN = f.read()
@@ -16,7 +17,33 @@ async def on_message(message):
     elif message.content.startswith('cowsay'):
         cows = message.content.replace('cowsay ', '')
         if cows == "help":
-            await message.channel.send("None help availeble yet. ")
+            embed = discord.Embed(colour=discord.Colour(0x1c0b92),
+                                  description="After the command, you need to fill in, what to say. ")
+
+            embed.set_thumbnail(
+                url="https://raw.githubusercontent.com/just-dev-creator/Cowsay-Discord-Bot/main/pic.png?token=AP7GUVD3CJSRLLXHSQ3XDGK74S6J4")
+            embed.set_author(name="Cowsay", url="https://github.com/just-dev-creator/Cowsay-Discord-Bot/")
+            embed.set_footer(text="just.dev")
+
+            embed.add_field(name=":cow: ", value="cowsay ", inline=True)
+            embed.add_field(name=":turtle: ", value="turtlesay", inline=True)
+            embed.add_field(name=":turkey: ", value="turkeysay", inline=True)
+            embed.add_field(name="🦖", value="stegosaurussay", inline=True)
+            embed.add_field(name=":pig:  ", value="pigsay ", inline=True)
+            embed.add_field(name=":milk:", value="milksay", inline=True)
+            embed.add_field(name=":smiley_cat:", value="meowsay", inline=True)
+            embed.add_field(name=":cat:", value="kittysay", inline=True)
+            embed.add_field(name=":ghost:", value="ghostbusterssay", inline=True)
+            embed.add_field(name=":chains:", value="daemonsay", inline=True)
+            embed.add_field(name=":dragon:", value="dragonsay", inline=True)
+            embed.add_field(name=":beavis:", value="beavissay", inline=True)
+            embed.add_field(name=":cheese:", value="cheesesay", inline=True)
+            embed.add_field(name=":penguin:", value="tuxsay", inline=True)
+            embed.add_field(name=":man:", value="beavissay", inline=True)
+
+            await message.channel.send(
+                content="Welcome to the cowsay Discord-Bot. Below, you can find a list of all command which you can use. ",
+                embed=embed)
         else:
             await message.channel.send(cowsay2.cow(cows))
         # print("=====================================================")

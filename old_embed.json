@@ -1,0 +1,40 @@
+{
+  "content": "Welcome to the cowsay Discord-Bot. Below, you can find a list of all command which you can use. ",
+  "embed": {
+    "color": 1837970,
+    "timestamp": "2020-12-17T16:02:48.017Z",
+    "description": "After the command, you need to fill in, what to say. ",
+    "footer": {
+      "text": "just.dev"
+    },
+    "thumbnail": {
+      "url": "https://raw.githubusercontent.com/just-dev-creator/Cowsay-Discord-Bot/main/pic.png?token=AP7GUVD3CJSRLLXHSQ3XDGK74S6J4"
+    },
+    "author": {
+      "name": "Cowsay",
+      "url": "https://github.com/just-dev-creator/Cowsay-Discord-Bot/"
+    },
+    "fields": [
+      {
+        "name": ":cow: ",
+        "value": "cowsay ",
+        "inline": true
+      },
+      {
+        "name": ":turtle: ",
+        "value": "turtlesay",
+        "inline": true
+      },
+      {
+        "name": ":turkey: ",
+        "value": "turkeysay",
+        "inline": true
+      },
+      {
+        "name": ":turtle: ",
+        "value": "turtlesay",
+        "inline": true
+      }
+    ]
+  }
+}
