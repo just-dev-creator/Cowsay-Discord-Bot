@@ -64,5 +64,5 @@ async def on_message(message):
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
         await message.channel.send(cowsay2.cheese(cows))
-
+        await message.channel.send(cowsay2.cheese(cows))
 client.run(TOKEN)
