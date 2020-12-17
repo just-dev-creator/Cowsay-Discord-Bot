@@ -1,5 +1,8 @@
 import discord
 import cowsay2
+TOKEN = ""
+with open("credentials.txt") as f:
+    TOKEN = f.read()
 
 client = discord.Client()
 @client.event
@@ -62,4 +65,4 @@ async def on_message(message):
         cows = message.content.replace('cheesesay', '')
         await message.channel.send(cowsay2.cheese(cows))
 
-client.run('Nzg5MDU1MzI4NTczODQ5NjEw.X9sfCg.uwO5rmXEfur-Atdfb9EwtaxCsGk')
+client.run(TOKEN)
