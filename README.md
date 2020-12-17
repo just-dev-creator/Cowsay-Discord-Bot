@@ -25,3 +25,4 @@ Now, you can also send more arts with the following commands:
 
 
 Please look also on the [original repository of the Python-Cowsay-Project](https://github.com/VaasuDevanS/cowsay-python). 
+*To see more information about this, consider reading the [BASEMENT.md](https://github.com/just-dev-creator/Cowsay-Discord-Bot/blob/main/BASEMENT.md) file.*
