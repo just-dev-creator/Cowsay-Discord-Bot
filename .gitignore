@@ -2,3 +2,4 @@
 .idea/vcs.xml
 __pycache__
 credentials.txt
+slashcommands.py
