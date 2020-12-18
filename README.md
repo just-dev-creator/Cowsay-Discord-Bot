@@ -30,8 +30,3 @@ Please look also on the [original repository of the Python-Cowsay-Project](https
 *To see more information about this, consider reading the [BASEMENT.md](https://github.com/just-dev-creator/Cowsay-Discord-Bot/blob/main/BASEMENT.md) file.*
 
 
-## Get support on the discord server
-If you need support, please consider joining the following server or send a mail to **[justus@justcoding.tech](mailto:justus@justcoding.tech)**
-<div markdown="1">
-<iframe src="https://discord.com/widget?id=789463072690536528&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-</div>
