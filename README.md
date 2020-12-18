@@ -30,5 +30,5 @@ Please look also on the [original repository of the Python-Cowsay-Project](https
 *To see more information about this, consider reading the [BASEMENT.md](https://github.com/just-dev-creator/Cowsay-Discord-Bot/blob/main/BASEMENT.md) file.*
 
 
-## Get support on the discord server
+## Get support
 If you need support, please consider joining the [discord server](https://discord.gg/UHhQcuST6G) or send a mail to **[justus@justcoding.tech](mailto:justus@justcoding.tech)**
