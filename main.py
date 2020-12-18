@@ -9,6 +9,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("I have logged in as {0.user}".format(client))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for cowsay help"))
 
 @client.event
 async def on_message(message):
@@ -36,7 +37,6 @@ async def on_message(message):
             embed.add_field(name=":ghost:", value="ghostbusterssay", inline=True)
             embed.add_field(name=":chains:", value="daemonsay", inline=True)
             embed.add_field(name=":dragon:", value="dragonsay", inline=True)
-            embed.add_field(name=":beavis:", value="beavissay", inline=True)
             embed.add_field(name=":cheese:", value="cheesesay", inline=True)
             embed.add_field(name=":penguin:", value="tuxsay", inline=True)
             embed.add_field(name=":man:", value="beavissay", inline=True)
