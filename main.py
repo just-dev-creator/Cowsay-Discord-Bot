@@ -1,15 +1,24 @@
 import discord
 import cowsay2
-import datetime
+from discord.ext import commands
+from discord_slash import SlashCommand
+from discord_slash import SlashContext
+
 TOKEN = ""
 with open("credentials.txt") as f:
     TOKEN = f.read()
 
-client = discord.Client()
+
+# Command prefix isn't needed for any action!
+client = commands.Bot(command_prefix="!", intents=discord.Intents.all())
+slash = SlashCommand(client, auto_register=True)
+
+
 @client.event
 async def on_ready():
     print("I have logged in as {0.user}".format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for cowsay help"))
+
 
 @client.event
 async def on_message(message):
@@ -46,8 +55,6 @@ async def on_message(message):
                 embed=embed)
         else:
             await message.channel.send(cowsay2.cow(cows))
-        # print("=====================================================")
-        # print(cowsay_str)
     elif message.content.startswith('tuxsay'):
         cows = message.content.replace('tuxsay', '')
         await message.channel.send(cowsay2.tux(cows))
@@ -60,7 +67,7 @@ async def on_message(message):
     elif message.content.startswith('stimpysay'):
         cows = message.content.replace('stimpysay', '')
         await message.channel.send(cowsay2.stimpy(cows))
-        #stegosaurus
+        # stegosaurus
     elif message.content.startswith('stegosaurussay'):
         cows = message.content.replace('stegosaurussay', '')
         await message.channel.send(cowsay2.stegosaurus(cows))
@@ -92,4 +99,144 @@ async def on_message(message):
         cows = message.content.replace('cheesesay', '')
         await message.channel.send(cowsay2.cheese(cows))
         await message.channel.send(cowsay2.cheese(cows))
+
+guild_ids : list = None
+
+@slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the cow says",
+    "type": 3,
+    "required": True
+}])
+async def _cowsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.cow(tosay))
+
+@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the turtle says",
+    "type": 3,
+    "required": True
+}])
+async def _turtlesay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.turtle(tosay))
+
+@slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the turkey says",
+    "type": 3,
+    "required": True
+}])
+async def _turkeysay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.turkey(tosay))
+
+
+async def _turtlesay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.turtle(tosay))
+
+
+@slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the stegosaurus says",
+    "type": 3,
+    "required": True
+}])
+async def _stegosaurussay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.stegosaurus(tosay))
+
+@slash.slash(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the pig says",
+    "type": 3,
+    "required": True
+}])
+async def _pigsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.pig(tosay))
+
+@slash.slash(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the milk says",
+    "type": 3,
+    "required": True
+}])
+async def _milksay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.milk(tosay))
+
+@slash.slash(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the cat says",
+    "type": 3,
+    "required": True
+}])
+async def _meowsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.meow(tosay))
+
+@slash.slash(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the cat says",
+    "type": 3,
+    "required": True
+}])
+async def _meowsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.kitty(tosay))
+
+@slash.slash(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the ghostbusters logo says",
+    "type": 3,
+    "required": True
+}])
+async def _ghostbusterssay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.ghostbusters(tosay))
+
+@slash.slash(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the daemon says",
+    "type": 3,
+    "required": True
+}])
+async def _daemonsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.daemon(tosay))
+
+@slash.slash(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the dragon says",
+    "type": 3,
+    "required": True
+}])
+async def _dragonsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.dragon(tosay))
+
+@slash.slash(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the cheese says",
+    "type": 3,
+    "required": True
+}])
+async def _cheesesay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.cheese(tosay))
+
+@slash.slash(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
+    "name": "tosay",
+    "description": "Specify what tux says",
+    "type": 3,
+    "required": True
+}])
+async def _tuxsay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.tux(tosay))
+
+@slash.slash(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
+    "name": "tosay",
+    "description": "Specify what beavis says",
+    "type": 3,
+    "required": True
+}])
+async def _beavissay(ctx: SlashContext, tosay):
+    await ctx.send(content=cowsay2.beavis(tosay))
+
+
+
+
+
+
+
 client.run(TOKEN)
