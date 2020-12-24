@@ -10,7 +10,7 @@ with open("credentials.txt") as f:
 
 
 # Command prefix isn't needed for any action!
-client = commands.Bot(command_prefix="!", intents=discord.Intents.all())
+client = commands.Bot(command_prefix="!")
 slash = SlashCommand(client, auto_register=True)
 
 
@@ -100,7 +100,7 @@ async def on_message(message):
         await message.channel.send(cowsay2.cheese(cows))
         await message.channel.send(cowsay2.cheese(cows))
 
-guild_ids : list = None
+guild_ids : list = [703266392295604254]
 
 @slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
     "name": "tosay",
