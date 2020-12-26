@@ -308,7 +308,7 @@ def string_processing(args):
             for j, i in enumerate(args):
                 if j % 50 == 0:
                     args.insert(j, "\n")
-            string_processing("".join(args))
+            return_string = return_string + string_processing("".join(args)) + "\n"
 
     else:
         flag = len(max(lines, key=len))
