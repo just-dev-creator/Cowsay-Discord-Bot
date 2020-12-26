@@ -288,7 +288,7 @@ Tux = '''
 # %%
 
 def string_processing(args):
-    return_string = "```"
+    return_string = ""
     args = str(args)
     lines = args.split("\n")
     lines = [i.strip() for i in lines]
@@ -407,7 +407,7 @@ def daemon(args):
 
 def cow(args):
     try:
-        str = (string_processing(args)) + "\n"
+        str = "```" + (string_processing(args)) + "\n"
         flag = flg[-1]
 
         str = str + (' ' * (flag + 5) + '\\') + "\n"
@@ -422,7 +422,7 @@ def cow(args):
 
 
     except:
-        str = ("Can't Say...!! Give something much more easier to Mr.Cow...")
+        str = ("```Can't Say...!! Give something much more easier to Mr.Cow...")
 
     return str
 
