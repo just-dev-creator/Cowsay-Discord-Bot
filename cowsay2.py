@@ -331,7 +331,7 @@ def string_processing(args):
                     new_lines.append("".join(args))
                 else:
                     new_lines.append(i + "\n")
-            string_processing("".join(new_lines))
+            return_string = return_string +  string_processing("".join(new_lines)) + "\n"
     return return_string
 
 
