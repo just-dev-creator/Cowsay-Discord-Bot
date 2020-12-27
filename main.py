@@ -181,16 +181,16 @@ async def _turkeysay(ctx: SlashContext, tosay):
     except:
         await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
-@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the turtle says",
-    "type": 3,
-    "required": True}])
-async def _turtlesay(ctx: SlashContext, tosay):
-    try:
-        await ctx.send(content=cowsay2.turtle(tosay))
-    except:
-        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
+# @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
+#     "name": "tosay",
+#     "description": "Specify what the turtle says",
+#     "type": 3,
+#     "required": True}])
+# async def _turtlesay(ctx: SlashContext, tosay):
+#     try:
+#         await ctx.send(content=cowsay2.turtle(tosay))
+#     except:
+#         await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 
 @slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
