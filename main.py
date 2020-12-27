@@ -152,9 +152,9 @@ guild_ids : list = [703266392295604254]
     "required": True
 }])
 async def _cowsay(ctx: SlashContext, tosay):
-    try:
+    if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.cow(tosay))
-    except:
+    else:
         await ctx.send(cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
