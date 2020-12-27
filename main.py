@@ -54,51 +54,94 @@ async def on_message(message):
                 content="Welcome to the cowsay Discord-Bot. Below, you can find a list of all command which you can use. ",
                 embed=embed)
         else:
-            await message.channel.send(cowsay2.cow(cows))
+            try:
+                await message.channel.send(cowsay2.cow(cows))
+            except:
+                await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('tuxsay'):
         cows = message.content.replace('tuxsay', '')
-        await message.channel.send(cowsay2.tux(cows))
+        try:
+            await message.channel.send(cowsay2.tux(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('turtlesay'):
         cows = message.content.replace('turtlesay', '')
-        await message.channel.send(cowsay2.turtle(cows))
+        try:
+            await message.channel.send(cowsay2.turtle(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('turkeysay'):
         cows = message.content.replace('turkeysay', '')
-        await message.channel.send(cowsay2.turkey(cows))
+        try:
+            await message.channel.send(cowsay2.turkey(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('stimpysay'):
         cows = message.content.replace('stimpysay', '')
-        await message.channel.send(cowsay2.stimpy(cows))
-        # stegosaurus
+        try:
+            await message.channel.send(cowsay2.stimpy(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('stegosaurussay'):
         cows = message.content.replace('stegosaurussay', '')
-        await message.channel.send(cowsay2.stegosaurus(cows))
+        try:
+            await message.channel.send(cowsay2.stegosaurus(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('pigsay'):
         cows = message.content.replace('pigsay', '')
-        await message.channel.send(cowsay2.pig(cows))
+        try:
+            await message.channel.send(cowsay2.pig(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('milksay'):
         cows = message.content.replace('milksay', '')
-        await message.channel.send(cowsay2.milk(cows))
+        try:
+            await message.channel.send(cowsay2.milk(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('meowsay'):
         cows = message.content.replace('meowsay', '')
-        await message.channel.send(cowsay2.meow(cows))
+        try:
+            await message.channel.send(cowsay2.meow(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('kittysay'):
         cows = message.content.replace('kittysay', '')
-        await message.channel.send(cowsay2.kitty(cows))
+        try:
+            await message.channel.send(cowsay2.kitty(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('ghostbusterssay'):
         cows = message.content.replace('ghostbusterssay', '')
-        await message.channel.send(cowsay2.ghostbusters(cows))
+        try:
+            await message.channel.send(cowsay2.ghostbusters(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('daemonsay'):
         cows = message.content.replace('daemonsay', '')
-        await message.channel.send(cowsay2.daemon(cows))
+        try:
+            await message.channel.send(cowsay2.daemon(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('dragonsay'):
         cows = message.content.replace('dragonsay', '')
-        await message.channel.send(cowsay2.dragon(cows))
+        try:
+            await message.channel.send(cowsay2.dragon(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('beavissay'):
         cows = message.content.replace('beavissay', '')
-        await message.channel.send(cowsay2.beavis(cows))
+        try:
+            await message.channel.send(cowsay2.beavis(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
-        await message.channel.send(cowsay2.cheese(cows))
-        await message.channel.send(cowsay2.cheese(cows))
+        try:
+            await message.channel.send(cowsay2.cheese(cows))
+        except:
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 guild_ids : list = [703266392295604254]
 
@@ -109,7 +152,10 @@ guild_ids : list = [703266392295604254]
     "required": True
 }])
 async def _cowsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.cow(tosay))
+    try:
+        await ctx.send(content=cowsay2.cow(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
     "name": "tosay",
@@ -118,7 +164,10 @@ async def _cowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _turtlesay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.turtle(tosay))
+    try:
+        await ctx.send(content=cowsay2.turtle(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 @slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
     "name": "tosay",
@@ -127,11 +176,21 @@ async def _turtlesay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _turkeysay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.turkey(tosay))
+    try:
+        await ctx.send(content=cowsay2.turkey(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
-
+@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the turtle says",
+    "type": 3,
+    "required": True}])
 async def _turtlesay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.turtle(tosay))
+    try:
+        await ctx.send(content=cowsay2.turtle(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 
 @slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
@@ -141,7 +200,10 @@ async def _turtlesay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _stegosaurussay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.stegosaurus(tosay))
+    try:
+        await ctx.send(content=cowsay2.stegosaurus(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 @slash.slash(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
     "name": "tosay",
@@ -150,7 +212,10 @@ async def _stegosaurussay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _pigsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.pig(tosay))
+    try:
+        await ctx.send(content=cowsay2.pig(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
 
 @slash.slash(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
     "name": "tosay",
@@ -159,7 +224,10 @@ async def _pigsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _milksay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.milk(tosay))
+    try:
+        await ctx.send(content=cowsay2.milk(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
@@ -168,7 +236,10 @@ async def _milksay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _meowsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.meow(tosay))
+    try:
+        await ctx.send(content=cowsay2.meow(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
@@ -177,7 +248,10 @@ async def _meowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _meowsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.kitty(tosay))
+    try:
+        await ctx.send(content=cowsay2.kitty(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
     "name": "tosay",
@@ -186,7 +260,10 @@ async def _meowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _ghostbusterssay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.ghostbusters(tosay))
+    try:
+        await ctx.send(content=cowsay2.ghostbusters(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
     "name": "tosay",
@@ -195,7 +272,10 @@ async def _ghostbusterssay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _daemonsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.daemon(tosay))
+    try:
+        await ctx.send(content=cowsay2.daemon(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
     "name": "tosay",
@@ -204,7 +284,10 @@ async def _daemonsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _dragonsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.dragon(tosay))
+    try:
+        await ctx.send(content=cowsay2.dragon(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), complete_hidden=True)
 
 @slash.slash(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
     "name": "tosay",
@@ -213,7 +296,10 @@ async def _dragonsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _cheesesay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.cheese(tosay))
+    try:
+        await ctx.send(content=cowsay2.cheese(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
     "name": "tosay",
@@ -222,7 +308,10 @@ async def _cheesesay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _tuxsay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.tux(tosay))
+    try:
+        await ctx.send(content=cowsay2.tux(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
     "name": "tosay",
@@ -231,7 +320,10 @@ async def _tuxsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _beavissay(ctx: SlashContext, tosay):
-    await ctx.send(content=cowsay2.beavis(tosay))
+    try:
+        await ctx.send(content=cowsay2.beavis(tosay))
+    except:
+        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 
 
