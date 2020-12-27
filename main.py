@@ -155,7 +155,7 @@ async def _cowsay(ctx: SlashContext, tosay):
     try:
         await ctx.send(content=cowsay2.cow(tosay))
     except:
-        await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
+        await ctx.send(cowsay2.cow("Sorry, too long (Discord error occured) "), hidden=True)
 
 @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
     "name": "tosay",
