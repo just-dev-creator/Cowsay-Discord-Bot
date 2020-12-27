@@ -288,7 +288,7 @@ Tux = '''
 # %%
 
 def string_processing(args):
-    return_string = "```"
+    return_string = ""
     args = str(args)
     lines = args.split("\n")
     lines = [i.strip() for i in lines]
@@ -338,7 +338,7 @@ def string_processing(args):
 # %% Character specific functions with minor tweaks
 
 def beavis(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -355,12 +355,12 @@ def beavis(args):
             str = str + (' ' * flag + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Beavis...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Beavis...")
     return str + "```"
 
 
 def cheese(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -378,12 +378,12 @@ def cheese(args):
             str = str + (' ' * (flag + 5) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Cheese...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Cheese...")
     return str + "```"
 
 
 def daemon(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + (string_processing(args)) + "\n"
@@ -401,13 +401,13 @@ def daemon(args):
             str = str + (' ' * (flag - 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Daemon...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Daemon...")
     return str + "```"
 
 
 def cow(args):
     try:
-        str = "" + (string_processing(args)) + "\n"
+        str = "```" + (string_processing(args)) + "\n"
         flag = flg[-1]
 
         str = str + (' ' * (flag + 5) + '\\') + "\n"
@@ -422,13 +422,13 @@ def cow(args):
 
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Cow...")
+        str = ("```Can't Say...!! Give something much more easier to Mr.Cow...```")
 
     return str
 
 
 def dragon(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -446,12 +446,12 @@ def dragon(args):
             str = str + (' ' * (flag + 3) + i) + "\n"
 
     except:
-        str = str + ("```Can't Say...!! Give something much more easier to Mr.Dragon...")
+        str = str + ("Can't Say...!! Give something much more easier to Mr.Dragon...")
     return str + "```"
 
 
 def ghostbusters(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -469,13 +469,13 @@ def ghostbusters(args):
             str = str + (' ' * (flag - 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to"
+        str = ("Can't Say...!! Give something much more easier to"
               "Mr.Ghostbusters...")
     return str + "```"
 
 
 def kitty(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -493,12 +493,12 @@ def kitty(args):
             str = str + (' ' * (flag + 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Ms.Kitty...")
+        str = ("Can't Say...!! Give something much more easier to Ms.Kitty...")
     return str + "```"
 
 
 def meow(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -516,12 +516,12 @@ def meow(args):
             str = str + (' ' * (flag + 5) + i) + "\n"
 
     except:
-        str = str + ("```Can't Say...!! Give something much more easier to Mr.Meow...")
+        str = str + ("Can't Say...!! Give something much more easier to Mr.Meow...")
     return str + "```"
 
 
 def milk(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -539,12 +539,12 @@ def milk(args):
             str = str + (' ' * (flag + 5) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Milk...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Milk...")
     return str + "```"
 
 
 def pig(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -562,12 +562,12 @@ def pig(args):
             str = str + (' ' * (flag + 5) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Pig...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Pig...")
     return str + "```"
 
 
 def stegosaurus(args):
-    str = ""
+    str = "```"
     try:
 
         str = string_processing(args) + "\n"
@@ -585,13 +585,13 @@ def stegosaurus(args):
             str = str + (' ' * (flag - 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to"
+        str = ("Can't Say...!! Give something much more easier to"
               "Mr.stegosaurus...")
     return str + "```"
 
 
 def stimpy(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -609,12 +609,12 @@ def stimpy(args):
             str = str + (' ' * (flag + 4) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Stimpy...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Stimpy...")
     return str + "```"
 
 
 def turkey(args):
-    str = ""
+    str = "```"
     try:
 
         str = str + string_processing(args) + "\n"
@@ -632,12 +632,12 @@ def turkey(args):
             str = str + (' ' * (flag - 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Turkey...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Turkey...")
     return str + "```"
 
 
 def turtle(args):
-    str = ""
+    str = "```"
     try:
         str = str + string_processing(args) + "\n"
         flag = flg[-1]
@@ -654,12 +654,12 @@ def turtle(args):
             str = str + (' ' * (flag - 3) + i) + "\n"
 
     except:
-        str = ("```Can't Say...!! Give something much more easier to Mr.Turtle...")
+        str = ("Can't Say...!! Give something much more easier to Mr.Turtle...")
     return str + "```"
 
 
 def tux(args):
-    return_str = ""
+    return_str = "```"
     return_str = return_str + string_processing(args) + "\n"
     flag = flg[-1]
 
