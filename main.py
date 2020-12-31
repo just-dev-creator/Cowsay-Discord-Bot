@@ -1,8 +1,8 @@
 import discord
-import cowsay2
 from discord.ext import commands
 from discord_slash import SlashCommand
 from discord_slash import SlashContext
+import cowsay2
 
 TOKEN = ""
 with open("credentials.txt") as f:
