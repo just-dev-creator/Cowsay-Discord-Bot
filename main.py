@@ -4,6 +4,7 @@ from discord_slash import SlashCommand
 from discord_slash import SlashContext
 import cowsay2
 
+isTest = False
 TOKEN = ""
 with open("credentials.txt") as f:
     TOKEN = f.read()
@@ -11,7 +12,7 @@ with open("credentials.txt") as f:
 
 # Command prefix isn't needed for any action!
 client = commands.Bot(command_prefix="!")
-slash = SlashCommand(client, auto_register=True)
+slash = SlashCommand(client, auto_register=True, auto_delete=True)
 
 
 @client.event
@@ -142,8 +143,10 @@ async def on_message(message):
             await message.channel.send(cowsay2.cheese(cows))
         except:
             await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
-
-guild_ids : list = [703266392295604254]
+if isTest:
+    guild_ids : list = [703266392295604254]
+else:
+    guild_ids : list = None
 
 @slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
     "name": "tosay",
@@ -175,16 +178,15 @@ async def _turkeysay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.turkey(tosay))
 
-# @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
-#     "name": "tosay",
-#     "description": "Specify what the turtle says",
-#     "type": 3,
-#     "required": True}])
-# async def _turtlesay(ctx: SlashContext, tosay):
-#     try:
-#         await ctx.send(content=cowsay2.turtle(tosay))
-#     except:
-#         await ctx.send(content=cowsay2.cow("Sorry, too long (Discord error occured) "))
+@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
+    "name": "tosay",
+    "description": "Specify what the turtle says",
+    "type": 3,
+    "required": True}])
+async def _turtlesay(ctx: SlashContext, tosay):
+    tosay = cowsay2.turtle(tosay)
+    if len(tosay) <= 2000:
+        await ctx.send(content=tosay)
 
 
 @slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
