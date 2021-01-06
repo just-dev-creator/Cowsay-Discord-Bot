@@ -158,16 +158,6 @@ async def _cowsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.cow(tosay))
 
-@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the turtle says",
-    "type": 3,
-    "required": True
-}])
-async def _turtlesay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.turtle(tosay))
-
 @slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
     "name": "tosay",
     "description": "Specify what the turkey says",
