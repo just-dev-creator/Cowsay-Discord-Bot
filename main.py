@@ -2,9 +2,11 @@ import discord
 from discord.ext import commands
 from discord_slash import SlashCommand
 from discord_slash import SlashContext
+from discord_slash.utils import manage_commands
+manage_commands.remove_all_commands()
 import cowsay2
 
-isTest = False
+isTest = True
 TOKEN = ""
 with open("credentials.txt") as f:
     TOKEN = f.read()
@@ -153,7 +155,7 @@ else:
 async def sendTooLong(ctx: SlashContext):
     await ctx.send(complete_hidden=True, content=cowsay2.cow("Sorry, but your text is too long. "))
 
-
+"""
 @slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
     "name": "tosay",
     "description": "Specify what the cow says",
@@ -309,5 +311,5 @@ async def _beavissay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.beavis(tosay))
 
-
+"""
 client.run(TOKEN)
