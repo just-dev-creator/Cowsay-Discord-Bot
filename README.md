@@ -8,7 +8,10 @@ Invite-Link for you: [https://discord.com/api/oauth2/authorize?client_id=7890553
 If you want to see the command in action, you can click each link down below, or send the bot a private message: **Cowsay#6535**. To see the cowsay command, click [here](http://justcoding.me/cowsay/cowsay.jpg).
 
 This project is a Discord-Bot which provides the legendary cowsay command on every Discord-Server and also in pricate messages. 
-**Note: The author isn't responsible for the text in the message. It is just the user input.**
+
+## ⚠️ Disclaimer ⚠️
+The project owner isn't responsible for any messages sent by the bot. The bot just takes the user input and doesn't scan the message for any malicious text. The bot does not send message without a user executing the command.
+If you wan't to scan the messages of the bot for malicious contents, please use a moderation bot. 
 
 ## More than one command
 You can use more than one command and also use the following commands:
