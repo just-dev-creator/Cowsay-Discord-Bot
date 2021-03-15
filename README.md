@@ -10,8 +10,8 @@ If you want to see the command in action, you can click each link down below, or
 This project is a Discord-Bot which provides the legendary cowsay command on every Discord-Server and also in pricate messages. 
 **Note: The author isn't responsible for the text in the message. It is just the user input.**
 
-## More ASCII-Arts
-Now, you can also send more arts with the following commands:
+## More than one command
+You can use more than one command and also use the following commands:
   - [tuxsay](http://justcoding.me/cowsay/tuxsay.jpg)
   - [turtlesay](http://justcoding.me/cowsay/turtlesay.jpg)
   - [turkeysay](http://justcoding.me/cowsay/turkeysay.jpg)
