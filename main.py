@@ -8,7 +8,6 @@ isTest = False
 with open("credentials.txt") as f:
     TOKEN = f.read()
 
-
 # Command prefix isn't needed for any action!
 client = commands.Bot(command_prefix="!")
 slash = SlashCommand(client, sync_commands=True)
@@ -144,10 +143,13 @@ async def on_message(message):
             await message.channel.send(cowsay2.cheese(cows))
         except:
             await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+
+
 if isTest:
-    guild_ids : list = [703266392295604254]
+    guild_ids: list = [703266392295604254]
 else:
-    guild_ids : list = None
+    guild_ids = None
+
 
 @slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
     "name": "tosay",
@@ -159,6 +161,7 @@ async def _cowsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.cow(tosay))
 
+
 @slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
     "name": "tosay",
     "description": "Specify what the turkey says",
@@ -168,6 +171,7 @@ async def _cowsay(ctx: SlashContext, tosay):
 async def _turkeysay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.turkey(tosay))
+
 
 @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
     "name": "tosay",
@@ -190,6 +194,7 @@ async def _stegosaurussay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.stegosaurus(tosay))
 
+
 @slash.slash(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
     "name": "tosay",
     "description": "Specify what the pig says",
@@ -199,6 +204,7 @@ async def _stegosaurussay(ctx: SlashContext, tosay):
 async def _pigsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.pig(tosay))
+
 
 @slash.slash(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
     "name": "tosay",
@@ -210,6 +216,7 @@ async def _milksay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.milk(tosay))
 
+
 @slash.slash(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
     "description": "Specify what the cat says",
@@ -219,6 +226,7 @@ async def _milksay(ctx: SlashContext, tosay):
 async def _meowsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.meow(tosay))
+
 
 @slash.slash(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
@@ -230,6 +238,7 @@ async def _meowsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.kitty(tosay))
 
+
 @slash.slash(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
     "name": "tosay",
     "description": "Specify what the ghostbusters logo says",
@@ -239,6 +248,7 @@ async def _meowsay(ctx: SlashContext, tosay):
 async def _ghostbusterssay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.ghostbusters(tosay))
+
 
 @slash.slash(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
     "name": "tosay",
@@ -250,6 +260,7 @@ async def _daemonsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.daemon(tosay))
 
+
 @slash.slash(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
     "name": "tosay",
     "description": "Specify what the dragon says",
@@ -259,6 +270,7 @@ async def _daemonsay(ctx: SlashContext, tosay):
 async def _dragonsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.dragon(tosay))
+
 
 @slash.slash(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
     "name": "tosay",
@@ -270,6 +282,7 @@ async def _cheesesay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.cheese(tosay))
 
+
 @slash.slash(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
     "name": "tosay",
     "description": "Specify what tux says",
@@ -280,6 +293,7 @@ async def _tuxsay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.tux(tosay))
 
+
 @slash.slash(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
     "name": "tosay",
     "description": "Specify what beavis says",
@@ -289,11 +303,6 @@ async def _tuxsay(ctx: SlashContext, tosay):
 async def _beavissay(ctx: SlashContext, tosay):
     if len(tosay) <= 2000:
         await ctx.send(content=cowsay2.beavis(tosay))
-
-
-
-
-
 
 
 client.run(TOKEN)
