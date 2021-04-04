@@ -5,14 +5,13 @@ from discord_slash import SlashContext
 import cowsay2
 
 isTest = False
-TOKEN = ""
 with open("credentials.txt") as f:
     TOKEN = f.read()
 
 
 # Command prefix isn't needed for any action!
 client = commands.Bot(command_prefix="!")
-slash = SlashCommand(client, auto_register=True, auto_delete=True)
+slash = SlashCommand(client, sync_commands=True)
 
 
 @client.event
@@ -32,7 +31,8 @@ async def on_message(message):
                                   description="After the command, you need to fill in, what to say. ")
 
             embed.set_thumbnail(
-                url="https://raw.githubusercontent.com/just-dev-creator/Cowsay-Discord-Bot/main/pic.png?token=AP7GUVD3CJSRLLXHSQ3XDGK74S6J4")
+                url="https://raw.githubusercontent.com/just-dev-creator/Cowsay-Discord-Bot/main/pic.png?token"
+                    "=AP7GUVD3CJSRLLXHSQ3XDGK74S6J4")
             embed.set_author(name="Cowsay", url="https://github.com/just-dev-creator/Cowsay-Discord-Bot/")
             embed.set_footer(text="just.dev")
 
@@ -52,7 +52,8 @@ async def on_message(message):
             embed.add_field(name=":man:", value="beavissay", inline=True)
 
             await message.channel.send(
-                content="Welcome to the cowsay Discord-Bot. Below, you can find a list of all command which you can use. ",
+                content="Welcome to the cowsay Discord-Bot. Below, you can find a list of all command which you can "
+                        "use. ",
                 embed=embed)
         else:
             try:
