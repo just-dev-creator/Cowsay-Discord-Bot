@@ -59,91 +59,91 @@ async def on_message(message):
             try:
                 await message.channel.send(cowsay2.cow(cows))
             except:
-                await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+                await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('tuxsay'):
         cows = message.content.replace('tuxsay', '')
         try:
             await message.channel.send(cowsay2.tux(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('turtlesay'):
         cows = message.content.replace('turtlesay', '')
         try:
             await message.channel.send(cowsay2.turtle(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('turkeysay'):
         cows = message.content.replace('turkeysay', '')
         try:
             await message.channel.send(cowsay2.turkey(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('stimpysay'):
         cows = message.content.replace('stimpysay', '')
         try:
             await message.channel.send(cowsay2.stimpy(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('stegosaurussay'):
         cows = message.content.replace('stegosaurussay', '')
         try:
             await message.channel.send(cowsay2.stegosaurus(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('pigsay'):
         cows = message.content.replace('pigsay', '')
         try:
             await message.channel.send(cowsay2.pig(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('milksay'):
         cows = message.content.replace('milksay', '')
         try:
             await message.channel.send(cowsay2.milk(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('meowsay'):
         cows = message.content.replace('meowsay', '')
         try:
             await message.channel.send(cowsay2.meow(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('kittysay'):
         cows = message.content.replace('kittysay', '')
         try:
             await message.channel.send(cowsay2.kitty(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('ghostbusterssay'):
         cows = message.content.replace('ghostbusterssay', '')
         try:
             await message.channel.send(cowsay2.ghostbusters(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('daemonsay'):
         cows = message.content.replace('daemonsay', '')
         try:
             await message.channel.send(cowsay2.daemon(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('dragonsay'):
         cows = message.content.replace('dragonsay', '')
         try:
             await message.channel.send(cowsay2.dragon(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('beavissay'):
         cows = message.content.replace('beavissay', '')
         try:
             await message.channel.send(cowsay2.beavis(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
         try:
             await message.channel.send(cowsay2.cheese(cows))
         except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occured) "))
+            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
 if isTest:
     guild_ids : list = [703266392295604254]
 else:
