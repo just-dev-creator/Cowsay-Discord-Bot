@@ -6,7 +6,6 @@ Last Modified on: Dec 08, 2020
 Description: Python package - cowsay
 """
 
-from __future__ import print_function
 import re
 import sys
 
@@ -570,7 +569,7 @@ def stegosaurus(args):
     str = "```"
     try:
 
-        str = string_processing(args) + "\n"
+        str = str + string_processing(args) + "\n"
         flag = flg[-1]
 
         str = str + (' ' * (flag + 5) + '\\') + "\n"
