@@ -13,6 +13,13 @@ This project is a Discord-Bot which provides the legendary cowsay command on eve
 The project owner isn't responsible for any messages sent by the bot. The bot just takes the user input and doesn't scan the message for any malicious text. The bot does not send message without a user executing the command.
 If you wan't to scan the messages of the bot for malicious contents, please use a moderation bot. 
 
+## Regarding the discord.py thing
+I won't cover what happened, for more information on this topic, please read this [gist](https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1).
+The bot will continue his work, and I'm looking for an active fork of discord.py. In the next weeks and months, the bot will
+change it's inner workings and migrate to slash commands more or less completely. Basically, I will make it so I could flip
+the switch to disable normal commands at any time. The bot will function using text message commands and slash commands
+as long as possible. 
+
 ## More than one command
 You can use more than one command and also use the following commands:
   - [tuxsay](https://justcoding.tech/cowsay/tuxsay.jpg)
