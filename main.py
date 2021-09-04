@@ -1,7 +1,5 @@
 import discord
-from discord.ext import commands
-from discord_slash import SlashCommand
-from discord_slash import SlashContext
+from discord import SlashCommand
 import cowsay
 from sys import argv
 
@@ -9,8 +7,7 @@ with open("credentials.txt") as f:
     TOKEN = f.read()
 
 is_test: bool = "-t" in argv or "--test" in argv
-client = commands.Bot(command_prefix="")
-slash = SlashCommand(client, sync_commands=True)
+client = discord.Bot()
 
 
 # Append markdown characters for code block
@@ -125,7 +122,7 @@ else:
     guild_ids = None
 
 
-async def get_message_or_error(ctx: SlashContext, message: str, char_name: str):
+async def get_message_or_error(ctx: SlashCommand, message: str, char_name: str):
     to_send: str = get_ascii_image_for_discord(message=message, char_name=char_name)
     if len(to_send) > 2000:
         await ctx.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "), hidden=True)
@@ -133,141 +130,141 @@ async def get_message_or_error(ctx: SlashContext, message: str, char_name: str):
         await ctx.send(to_send)
 
 
-@slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
+@client.slash_command(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
     "name": "tosay",
     "description": "Specify what the cow says",
     "type": 3,
     "required": True
 }])
-async def _cowsay(ctx: SlashContext, tosay):
+async def _cowsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "cow")
 
 
-@slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
+@client.slash_command(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
     "name": "tosay",
     "description": "Specify what the turkey says",
     "type": 3,
     "required": True
 }])
-async def _turkeysay(ctx: SlashContext, tosay):
+async def _turkeysay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "turkey")
 
 
-@slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
+@client.slash_command(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
     "name": "tosay",
     "description": "Specify what the turtle says",
     "type": 3,
     "required": True}])
-async def _turtlesay(ctx: SlashContext, tosay):
+async def _turtlesay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "turtle")
 
 
-@slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
+@client.slash_command(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
     "name": "tosay",
     "description": "Specify what the stegosaurus says",
     "type": 3,
     "required": True
 }])
-async def _stegosaurussay(ctx: SlashContext, tosay):
+async def _stegosaurussay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "stegosaurus")
 
 
-@slash.slash(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
+@client.slash_command(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
     "name": "tosay",
     "description": "Specify what the pig says",
     "type": 3,
     "required": True
 }])
-async def _pigsay(ctx: SlashContext, tosay):
+async def _pigsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "pig")
 
 
-@slash.slash(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
+@client.slash_command(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
     "name": "tosay",
     "description": "Specify what the milk says",
     "type": 3,
     "required": True
 }])
-async def _milksay(ctx: SlashContext, tosay):
+async def _milksay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "milk")
 
 
-@slash.slash(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
+@client.slash_command(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
     "description": "Specify what the cat says",
     "type": 3,
     "required": True
 }])
-async def _meowsay(ctx: SlashContext, tosay):
+async def _meowsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "meow")
 
 
-@slash.slash(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
+@client.slash_command(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
     "name": "tosay",
     "description": "Specify what the cat says",
     "type": 3,
     "required": True
 }])
-async def _meowsay(ctx: SlashContext, tosay):
+async def _meowsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "kitty")
 
 
-@slash.slash(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
+@client.slash_command(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
     "name": "tosay",
     "description": "Specify what the ghostbusters logo says",
     "type": 3,
     "required": True
 }])
-async def _ghostbusterssay(ctx: SlashContext, tosay):
+async def _ghostbusterssay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "ghostbusters")
 
 
-@slash.slash(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
+@client.slash_command(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
     "name": "tosay",
     "description": "Specify what the daemon says",
     "type": 3,
     "required": True
 }])
-async def _daemonsay(ctx: SlashContext, tosay):
+async def _daemonsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "daemon")
 
 
-@slash.slash(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
+@client.slash_command(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
     "name": "tosay",
     "description": "Specify what the dragon says",
     "type": 3,
     "required": True
 }])
-async def _dragonsay(ctx: SlashContext, tosay):
+async def _dragonsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "dragon")
 
 
-@slash.slash(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
+@client.slash_command(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
     "name": "tosay",
     "description": "Specify what the cheese says",
     "type": 3,
     "required": True
 }])
-async def _cheesesay(ctx: SlashContext, tosay):
+async def _cheesesay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "cheese")
 
-@slash.slash(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
+@client.slash_command(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
     "name": "tosay",
     "description": "Specify what tux says",
     "type": 3,
     "required": True
 }])
-async def _tuxsay(ctx: SlashContext, tosay):
+async def _tuxsay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "tux")
 
 
-@slash.slash(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
+@client.slash_command(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
     "name": "tosay",
     "description": "Specify what beavis says",
     "type": 3,
     "required": True
 }])
-async def _beavissay(ctx: SlashContext, tosay):
+async def _beavissay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "beavis")
 
 
