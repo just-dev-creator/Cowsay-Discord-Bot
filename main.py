@@ -2,9 +2,12 @@ import discord
 from discord import SlashCommand
 import cowsay
 from sys import argv
+from os import environ
 
 with open("credentials.txt") as f:
     TOKEN = f.read()
+
+TOKEN = environ["DISCORD_BOT_TOKEN"]
 
 is_test: bool = "-t" in argv or "--test" in argv
 client = discord.Bot()
