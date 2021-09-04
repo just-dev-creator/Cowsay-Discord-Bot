@@ -5,7 +5,7 @@
 
 Invite-Link for you: [https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot](https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands)
 
-If you want to see the command in action, you can click each link down below, or send the bot a private message: **Cowsay#6535**. To see the cowsay command, click [here](http://justcoding.me/cowsay/cowsay.jpg).
+If you want to see the command in action, you can click each link down below, or send the bot a private message: **Cowsay#6535**. To see the cowsay command, click [here](https://justcoding.tech/cowsay/cowsay.jpg).
 
 This project is a Discord-Bot which provides the legendary cowsay command on every Discord-Server and also in pricate messages. 
 
@@ -15,20 +15,20 @@ If you wan't to scan the messages of the bot for malicious contents, please use 
 
 ## More than one command
 You can use more than one command and also use the following commands:
-  - [tuxsay](http://justcoding.me/cowsay/tuxsay.jpg)
-  - [turtlesay](http://justcoding.me/cowsay/turtlesay.jpg)
-  - [turkeysay](http://justcoding.me/cowsay/turkeysay.jpg)
-  - [stimpysay](http://justcoding.me/cowsay/stimpysay.jpg)
-  - [stegosaurussay](http://justcoding.me/cowsay/stegosaurussay.jpg)
-  - [pigsay](http://justcoding.me/cowsay/pigsay.jpg)
-  - [milksay](http://justcoding.me/cowsay/milksay.jpg)
-  - [meowsay](http://justcoding.me/cowsay/meowsay.jpg)
-  - [kittysay](http://justcoding.me/cowsay/kittysay.jpg)
-  - [ghostbusterssay](http://justcoding.me/cowsay/ghostbusterssay.jpg)
-  - [daemonsay](http://justcoding.me/cowsay/daemonsay.jpg)
-  - [dragonsay](http://justcoding.me/cowsay/dragonsay.jpg)
-  - [beavissay](http://justcoding.me/cowsay/beavissay.jpg)
-  - [cheesesay](http://justcoding.me/cowsay/cheesesay.jpg)
+  - [tuxsay](https://justcoding.tech/cowsay/tuxsay.jpg)
+  - [turtlesay](https://justcoding.tech/cowsay/turtlesay.jpg)
+  - [turkeysay](https://justcoding.tech/cowsay/turkeysay.jpg)
+  - [stimpysay](https://justcoding.tech/cowsay/stimpysay.jpg)
+  - [stegosaurussay](https://justcoding.tech/cowsay/stegosaurussay.jpg)
+  - [pigsay](https://justcoding.tech/cowsay/pigsay.jpg)
+  - [milksay](https://justcoding.tech/cowsay/milksay.jpg)
+  - [meowsay](https://justcoding.tech/cowsay/meowsay.jpg)
+  - [kittysay](https://justcoding.tech/cowsay/kittysay.jpg)
+  - [ghostbusterssay](https://justcoding.tech/cowsay/ghostbusterssay.jpg)
+  - [daemonsay](https://justcoding.tech/cowsay/daemonsay.jpg)
+  - [dragonsay](https://justcoding.tech/cowsay/dragonsay.jpg)
+  - [beavissay](https://justcoding.tech/cowsay/beavissay.jpg)
+  - [cheesesay](https://justcoding.tech/cowsay/cheesesay.jpg)
 
 ## Slash commands
 This bot also support slash commands! If you already have invited the bot to your server and want to use them, please [re-invite](https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands) him to grant the extra permissions.
