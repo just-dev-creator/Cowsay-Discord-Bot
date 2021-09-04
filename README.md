@@ -3,7 +3,7 @@
 
 [![Discord Bots](https://top.gg/api/widget/789055328573849610.svg)](https://top.gg/bot/789055328573849610)
 
-Invite-Link for you: [https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot](https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands)
+Invite-Link for you: [https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands](https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands)
 
 If you want to see the command in action, you can click each link down below, or send the bot a private message: **Cowsay#6535**. To see the cowsay command, click [here](https://justcoding.tech/cowsay/cowsay.jpg).
 
