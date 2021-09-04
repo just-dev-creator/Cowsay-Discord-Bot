@@ -10,7 +10,7 @@ If you want to see the command in action, you can click each link down below, or
 This project is a Discord-Bot which provides the legendary cowsay command on every Discord-Server and also in pricate messages. 
 
 ## ⚠️ Disclaimer ⚠️
-The project owner isn't responsible for any messages sent by the bot. The bot just takes the user input and doesn't scan the message for any malicious text. The bot does not send message without a user executing the command.
+The project owner isn't responsible for any messages sent by the bot. The bot just takes the user input and doesn't scan the message for any malicious text. The bot does not send messages without a user executing the command.
 If you wan't to scan the messages of the bot for malicious contents, please use a moderation bot. 
 
 ## More than one command
