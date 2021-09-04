@@ -3,9 +3,11 @@ from discord import SlashCommand
 import cowsay
 from sys import argv
 from os import environ
+from os.path import exists
 
-with open("credentials.txt") as f:
-    TOKEN = f.read()
+if exists("credentials.txt"):
+    with open("credentials.txt") as f:
+        TOKEN = f.read()
 
 TOKEN = environ["DISCORD_BOT_TOKEN"]
 
