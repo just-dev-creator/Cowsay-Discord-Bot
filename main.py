@@ -2,26 +2,41 @@ import discord
 from discord.ext import commands
 from discord_slash import SlashCommand
 from discord_slash import SlashContext
-import cowsay2
+import cowsay
+from sys import argv
 
-isTest = False
 with open("credentials.txt") as f:
     TOKEN = f.read()
 
-# Command prefix isn't needed for any action!
-client = commands.Bot(command_prefix="!")
+is_test: bool = "-t" in argv or "--test" in argv
+client = commands.Bot(command_prefix="")
 slash = SlashCommand(client, sync_commands=True)
+
+
+# Append markdown characters for code block
+def make_code_block(message: str) -> str:
+    return "```" + message + "```"
+
+
+def get_ascii_image_for_discord(char_name: str, message: str) -> str:
+    return make_code_block(cowsay.get_output_string(char_name=char_name, text=message))
 
 
 @client.event
 async def on_ready():
-    print("I have logged in as {0.user}".format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="for cowsay help"))
+    # Print success message on startup
+    print(f"Bot is ready as {client.user}")
+    if is_test:
+        print("Bot is running in testing mode. Please remove the --test flag if this is a production deployment!")
+    # Should resolve as "listens to cowsay help"
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="cowsay help"))
 
 
 @client.event
 async def on_message(message):
+    to_send: str = ""
     if message.author == client.user:
+        # Return if we send the message
         return
     elif message.content.startswith('cowsay'):
         cows = message.content.replace('cowsay ', '')
@@ -55,100 +70,67 @@ async def on_message(message):
                         "use. ",
                 embed=embed)
         else:
-            try:
-                await message.channel.send(cowsay2.cow(cows))
-            except:
-                await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+            to_send = get_ascii_image_for_discord("cow", cows)
     elif message.content.startswith('tuxsay'):
         cows = message.content.replace('tuxsay', '')
-        try:
-            await message.channel.send(cowsay2.tux(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("tux", cows)
     elif message.content.startswith('turtlesay'):
         cows = message.content.replace('turtlesay', '')
-        try:
-            await message.channel.send(cowsay2.turtle(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("turtle", cows)
     elif message.content.startswith('turkeysay'):
         cows = message.content.replace('turkeysay', '')
-        try:
-            await message.channel.send(cowsay2.turkey(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("turkey", cows)
     elif message.content.startswith('stimpysay'):
         cows = message.content.replace('stimpysay', '')
-        try:
-            await message.channel.send(cowsay2.stimpy(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("stimpy", cows)
     elif message.content.startswith('stegosaurussay'):
         cows = message.content.replace('stegosaurussay', '')
-        try:
-            await message.channel.send(cowsay2.stegosaurus(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("stegosaurus", cows)
     elif message.content.startswith('pigsay'):
         cows = message.content.replace('pigsay', '')
-        try:
-            await message.channel.send(cowsay2.pig(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("pig", cows)
     elif message.content.startswith('milksay'):
         cows = message.content.replace('milksay', '')
-        try:
-            await message.channel.send(cowsay2.milk(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("milk", cows)
     elif message.content.startswith('meowsay'):
         cows = message.content.replace('meowsay', '')
-        try:
-            await message.channel.send(cowsay2.meow(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("meow", cows)
     elif message.content.startswith('kittysay'):
         cows = message.content.replace('kittysay', '')
-        try:
-            await message.channel.send(cowsay2.kitty(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("kitty", cows)
     elif message.content.startswith('ghostbusterssay'):
         cows = message.content.replace('ghostbusterssay', '')
-        try:
-            await message.channel.send(cowsay2.ghostbusters(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("ghostbusters", cows)
     elif message.content.startswith('daemonsay'):
         cows = message.content.replace('daemonsay', '')
-        try:
-            await message.channel.send(cowsay2.daemon(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("daemon", cows)
     elif message.content.startswith('dragonsay'):
         cows = message.content.replace('dragonsay', '')
-        try:
-            await message.channel.send(cowsay2.dragon(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("dragon", cows)
     elif message.content.startswith('beavissay'):
         cows = message.content.replace('beavissay', '')
-        try:
-            await message.channel.send(cowsay2.beavis(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("beavis", cows)
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
-        try:
-            await message.channel.send(cowsay2.cheese(cows))
-        except:
-            await message.channel.send(cowsay2.cow("Sorry, too long (Discord error occurred) "))
+        to_send = get_ascii_image_for_discord("cheese", cows)
+    try:
+        await message.channel.send(to_send)
+    except discord.errors.HTTPException:
+        await message.channel.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "))
 
 
-if isTest:
-    guild_ids: list = [703266392295604254]
+if is_test:
+    guild_ids: list = [703266392295604254] # 703266392295604254
 else:
     guild_ids = None
+
+
+async def get_message_or_error(ctx: SlashContext, message: str, char_name: str):
+    to_send: str = get_ascii_image_for_discord(message=message, char_name=char_name)
+    if len(to_send) > 2000:
+        await ctx.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "), hidden=True)
+    else:
+        await ctx.send(to_send)
 
 
 @slash.slash(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
@@ -158,8 +140,7 @@ else:
     "required": True
 }])
 async def _cowsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.cow(tosay))
+    await get_message_or_error(ctx, tosay, "cow")
 
 
 @slash.slash(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
@@ -169,8 +150,7 @@ async def _cowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _turkeysay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.turkey(tosay))
+    await get_message_or_error(ctx, tosay, "turkey")
 
 
 @slash.slash(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
@@ -179,9 +159,7 @@ async def _turkeysay(ctx: SlashContext, tosay):
     "type": 3,
     "required": True}])
 async def _turtlesay(ctx: SlashContext, tosay):
-    tosay = cowsay2.turtle(tosay)
-    if len(tosay) <= 2000:
-        await ctx.send(content=tosay)
+    await get_message_or_error(ctx, tosay, "turtle")
 
 
 @slash.slash(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
@@ -191,8 +169,7 @@ async def _turtlesay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _stegosaurussay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.stegosaurus(tosay))
+    await get_message_or_error(ctx, tosay, "stegosaurus")
 
 
 @slash.slash(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
@@ -202,8 +179,7 @@ async def _stegosaurussay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _pigsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.pig(tosay))
+    await get_message_or_error(ctx, tosay, "pig")
 
 
 @slash.slash(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
@@ -213,8 +189,7 @@ async def _pigsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _milksay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.milk(tosay))
+    await get_message_or_error(ctx, tosay, "milk")
 
 
 @slash.slash(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
@@ -224,8 +199,7 @@ async def _milksay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _meowsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.meow(tosay))
+    await get_message_or_error(ctx, tosay, "meow")
 
 
 @slash.slash(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
@@ -235,8 +209,7 @@ async def _meowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _meowsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.kitty(tosay))
+    await get_message_or_error(ctx, tosay, "kitty")
 
 
 @slash.slash(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
@@ -246,8 +219,7 @@ async def _meowsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _ghostbusterssay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.ghostbusters(tosay))
+    await get_message_or_error(ctx, tosay, "ghostbusters")
 
 
 @slash.slash(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
@@ -257,8 +229,7 @@ async def _ghostbusterssay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _daemonsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.daemon(tosay))
+    await get_message_or_error(ctx, tosay, "daemon")
 
 
 @slash.slash(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
@@ -268,8 +239,7 @@ async def _daemonsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _dragonsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.dragon(tosay))
+    await get_message_or_error(ctx, tosay, "dragon")
 
 
 @slash.slash(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
@@ -279,9 +249,7 @@ async def _dragonsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _cheesesay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.cheese(tosay))
-
+    await get_message_or_error(ctx, tosay, "cheese")
 
 @slash.slash(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
     "name": "tosay",
@@ -290,8 +258,7 @@ async def _cheesesay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _tuxsay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.tux(tosay))
+    await get_message_or_error(ctx, tosay, "tux")
 
 
 @slash.slash(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
@@ -301,8 +268,7 @@ async def _tuxsay(ctx: SlashContext, tosay):
     "required": True
 }])
 async def _beavissay(ctx: SlashContext, tosay):
-    if len(tosay) <= 2000:
-        await ctx.send(content=cowsay2.beavis(tosay))
+    await get_message_or_error(ctx, tosay, "beavis")
 
 
 client.run(TOKEN)
