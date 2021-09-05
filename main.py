@@ -9,9 +9,11 @@ if exists("credentials.txt"):
     with open("credentials.txt") as f:
         TOKEN = f.read()
 
-TOKEN = environ["DISCORD_BOT_TOKEN"]
+if "DISCORD_BOT_TOKEN" in environ:
+    TOKEN = environ["DISCORD_BOT_TOKEN"]
 
 is_test: bool = "-t" in argv or "--test" in argv
+allow_text: bool = "-nt" not in argv and "--no-text" not in argv
 client = discord.Bot()
 
 
@@ -36,8 +38,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    return
-    to_send: str = ""
+    if not allow_text:
+        return
+
+    to_send: str = None
     if message.author == client.user:
         # Return if we send the message
         return
@@ -116,10 +120,11 @@ async def on_message(message):
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
         to_send = get_ascii_image_for_discord("cheese", cows)
-    try:
-        await message.channel.send(to_send)
-    except discord.errors.HTTPException:
-        await message.channel.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "))
+    if to_send is not None:
+        try:
+            await message.channel.send(to_send)
+        except discord.errors.HTTPException:
+            await message.channel.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "))
 
 
 if is_test:
