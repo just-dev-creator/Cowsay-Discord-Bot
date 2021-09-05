@@ -9,7 +9,8 @@ if exists("credentials.txt"):
     with open("credentials.txt") as f:
         TOKEN = f.read()
 
-TOKEN = environ["DISCORD_BOT_TOKEN"]
+if "DISCORD_BOT_TOKEN" in environ:
+    TOKEN = environ["DISCORD_BOT_TOKEN"]
 
 is_test: bool = "-t" in argv or "--test" in argv
 client = discord.Bot()
