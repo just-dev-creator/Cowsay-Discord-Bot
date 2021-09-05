@@ -13,9 +13,6 @@ This project is a Discord-Bot which provides the legendary cowsay command on eve
 The project owner isn't responsible for any messages sent by the bot. The bot just takes the user input and doesn't scan the message for any malicious text. The bot does not send messages without a user executing the command.
 If you want to scan the messages of the bot for malicious contents, please use a moderation bot. 
 
-## Regarding the discord.py thing
-This project was longly using discord.py. Cause of some problems with the Discord API and staff, this package won't be
-continued and was archived. Therefore, we now use pycord, which also removes the slash commands dependency. 
 
 ## More than one command
 You can use more than one command and also use the following commands:
