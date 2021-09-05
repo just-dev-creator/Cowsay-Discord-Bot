@@ -37,11 +37,6 @@ You can use more than one command and also use the following commands:
 ## Slash commands
 This bot also support slash commands! If you already have invited the bot to your server and want to use them, please [re-invite](https://discord.com/api/oauth2/authorize?client_id=789055328573849610&permissions=2048&scope=bot%20applications.commands) him to grant the extra permissions.
 
-
-## Additional information
-Please take a look on the [original repository of the Python-Cowsay-Project](https://github.com/VaasuDevanS/cowsay-python). 
-*To see more information about this, consider reading the [BASEMENT.md](https://github.com/just-dev-creator/Cowsay-Discord-Bot/blob/main/BASEMENT.md) file.*
-
-
 ## Get support
-If you need support, please consider joining the [discord server](https://discord.gg/UHhQcuST6G) or send a mail to **[justus@justcoding.tech](mailto:justus@justcoding.tech)**
+If you need support, please consider joining the [discord server](https://discord.gg/UHhQcuST6G), creating an GitHub 
+issue if the problem is in the code, or using the discussions tab on GitHub.
