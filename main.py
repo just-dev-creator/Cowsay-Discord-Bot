@@ -36,6 +36,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    return
     to_send: str = ""
     if message.author == client.user:
         # Return if we send the message
