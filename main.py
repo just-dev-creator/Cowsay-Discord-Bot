@@ -21,7 +21,7 @@ client = discord.Bot()
 def make_code_block(message: str) -> str:
     return "```" + message + "```"
 
-
+# Get final message with code blocks
 def get_ascii_image_for_discord(char_name: str, message: str) -> str:
     return make_code_block(cowsay.get_output_string(char_name=char_name, text=message))
 
@@ -120,10 +120,13 @@ async def on_message(message):
     elif message.content.startswith('cheesesay'):
         cows = message.content.replace('cheesesay', '')
         to_send = get_ascii_image_for_discord("cheese", cows)
+
+    # Send predifined message if it exists
     if to_send is not None:
         try:
             await message.channel.send(to_send)
         except discord.errors.HTTPException:
+            # If an error occurred, send an error message
             await message.channel.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "))
 
 
@@ -134,6 +137,9 @@ else:
 
 
 async def get_message_or_error(ctx: SlashCommand, message: str, char_name: str):
+    """
+    React with error or message to a slash command
+    """
     to_send: str = get_ascii_image_for_discord(message=message, char_name=char_name)
     if len(to_send) > 2000:
         await ctx.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "), hidden=True)
@@ -279,4 +285,5 @@ async def _beavissay(ctx: SlashCommand, tosay):
     await get_message_or_error(ctx, tosay, "beavis")
 
 
+# Start bot with given bot
 client.run(TOKEN)
