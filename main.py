@@ -23,7 +23,7 @@ def make_code_block(message: str) -> str:
 
 # Get final message with code blocks
 def get_ascii_image_for_discord(char_name: str, message: str) -> str:
-    return make_code_block(cowsay.get_output_string(char_name=char_name, text=message))
+    return make_code_block(cowsay.get_output_string(char_name=char_name, text=message).replace("`", "｀"))
 
 
 @client.event
@@ -142,146 +142,77 @@ async def get_message_or_error(ctx: SlashCommand, message: str, char_name: str):
     """
     to_send: str = get_ascii_image_for_discord(message=message, char_name=char_name)
     if len(to_send) > 2000:
-        await ctx.send(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "), hidden=True)
+        await ctx.respond(get_ascii_image_for_discord("cow", "Sorry, your message was too long. "), ephemeral=True)
     else:
-        await ctx.send(to_send)
+        await ctx.respond(to_send)
 
 
-@client.slash_command(name="cowsay", guild_ids=guild_ids, description="Let a cow say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the cow says",
-    "type": 3,
-    "required": True
-}])
-async def _cowsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="cowsay", guild_ids=guild_ids, description="Let a cow say things")
+async def _cowsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the cow say?")):
     await get_message_or_error(ctx, tosay, "cow")
 
 
-@client.slash_command(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the turkey says",
-    "type": 3,
-    "required": True
-}])
-async def _turkeysay(ctx: SlashCommand, tosay):
+@client.slash_command(name="turkeysay", guild_ids=guild_ids, description="Let a turkey say things")
+async def _turkeysay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the turkey say?")):
     await get_message_or_error(ctx, tosay, "turkey")
 
 
-@client.slash_command(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the turtle says",
-    "type": 3,
-    "required": True}])
-async def _turtlesay(ctx: SlashCommand, tosay):
+@client.slash_command(name="turtlesay", guild_ids=guild_ids, description="Let a turtle say things")
+async def _turtlesay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the turtle say?")):
     await get_message_or_error(ctx, tosay, "turtle")
 
 
-@client.slash_command(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the stegosaurus says",
-    "type": 3,
-    "required": True
-}])
-async def _stegosaurussay(ctx: SlashCommand, tosay):
+@client.slash_command(name="stegosaurussay", guild_ids=guild_ids, description="Let a stegosaurus say things")
+async def _stegosaurussay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the stegosaurus say?")):
     await get_message_or_error(ctx, tosay, "stegosaurus")
 
 
-@client.slash_command(name="pigsay", guild_ids=guild_ids, description="Let a pig say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the pig says",
-    "type": 3,
-    "required": True
-}])
-async def _pigsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="pigsay", guild_ids=guild_ids, description="Let a pig say things")
+async def _pigsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the pig say?")):
     await get_message_or_error(ctx, tosay, "pig")
 
 
-@client.slash_command(name="milksay", guild_ids=guild_ids, description="Let a milk say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the milk says",
-    "type": 3,
-    "required": True
-}])
-async def _milksay(ctx: SlashCommand, tosay):
+@client.slash_command(name="milksay", guild_ids=guild_ids)
+async def _milksay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the milk say?")):
     await get_message_or_error(ctx, tosay, "milk")
 
 
-@client.slash_command(name="meowsay", guild_ids=guild_ids, description="Let a cat say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the cat says",
-    "type": 3,
-    "required": True
-}])
-async def _meowsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="meowsay", guild_ids=guild_ids)
+async def _meowsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the cat say?")):
     await get_message_or_error(ctx, tosay, "meow")
 
 
-@client.slash_command(name="kittysay", guild_ids=guild_ids, description="Let a cat say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the cat says",
-    "type": 3,
-    "required": True
-}])
-async def _meowsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="kittysay", guild_ids=guild_ids)
+async def _meowsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the kitty say?")):
     await get_message_or_error(ctx, tosay, "kitty")
 
 
-@client.slash_command(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the ghostbusters logo says",
-    "type": 3,
-    "required": True
-}])
-async def _ghostbusterssay(ctx: SlashCommand, tosay):
+@client.slash_command(name="ghostbusterssay", guild_ids=guild_ids, description="Let the ghostbusters logo say things")
+async def _ghostbusterssay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the ghostbusters logo say?")):
     await get_message_or_error(ctx, tosay, "ghostbusters")
 
 
-@client.slash_command(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the daemon says",
-    "type": 3,
-    "required": True
-}])
-async def _daemonsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="daemonsay", guild_ids=guild_ids, description="Let a daemon say things")
+async def _daemonsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the daemon say?")):
     await get_message_or_error(ctx, tosay, "daemon")
 
 
-@client.slash_command(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the dragon says",
-    "type": 3,
-    "required": True
-}])
-async def _dragonsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="dragonsay", guild_ids=guild_ids, description="Let a dragon say things")
+async def _dragonsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the dragon say?")):
     await get_message_or_error(ctx, tosay, "dragon")
 
 
-@client.slash_command(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things", options=[{
-    "name": "tosay",
-    "description": "Specify what the cheese says",
-    "type": 3,
-    "required": True
-}])
-async def _cheesesay(ctx: SlashCommand, tosay):
+@client.slash_command(name="cheesesay", guild_ids=guild_ids, description="Let a cheese say things")
+async def _cheesesay(ctx: SlashCommand, tosay: discord.Option(str, description="What should the cheese say?")):
     await get_message_or_error(ctx, tosay, "cheese")
 
-@client.slash_command(name="tuxsay", guild_ids=guild_ids, description="Let tux say things", options=[{
-    "name": "tosay",
-    "description": "Specify what tux says",
-    "type": 3,
-    "required": True
-}])
-async def _tuxsay(ctx: SlashCommand, tosay):
+@client.slash_command(name="tuxsay", guild_ids=guild_ids, description="Let tux say things")
+async def _tuxsay(ctx: SlashCommand, tosay: discord.Option(str, description="What should tux say?")):
     await get_message_or_error(ctx, tosay, "tux")
 
 
-@client.slash_command(name="beavissay", guild_ids=guild_ids, description="Let beavis say things", options=[{
-    "name": "tosay",
-    "description": "Specify what beavis says",
-    "type": 3,
-    "required": True
-}])
-async def _beavissay(ctx: SlashCommand, tosay):
+@client.slash_command(name="beavissay", guild_ids=guild_ids, description="Let beavis say things")
+async def _beavissay(ctx: SlashCommand, tosay: discord.Option(str, description="What should beavis say?")):
     await get_message_or_error(ctx, tosay, "beavis")
 
 
